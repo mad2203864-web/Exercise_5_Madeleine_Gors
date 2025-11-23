@@ -1,0 +1,7 @@
+<form method="post" action="{{url_for('login')}}" >
+Username: <input type="text" name="username" /><br />
+Password: <input type="password" name="secret" /><br />
+<input type="submit" name="submitted" value="Log me in!" />
+</form>
+
+<a href="{{url_for('login')}}">Back to Form</a>

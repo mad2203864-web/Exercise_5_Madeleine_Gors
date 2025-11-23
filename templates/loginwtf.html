@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login with WTF</title>
+</head>
+<body>
+<form method="post" action="/loginwtf">
+    {{form.csrf_token}}
+    <br />
+    {{form.user_name.label}} {{form.user_name(size=30)}} <br />
+    {{form.pass_word.label}} {{form.pass_word(size=20)}} <br />
+    {{form.user_email.label}} {{form.user_email(size=50)}}
+   <br />
+    <ul>
+    {% for subfield in form.user_type %}
+    <li>
+        {{ subfield }}
+        {{ subfield.label }}
+    </li>
+    {% endfor %}
+    </ul>
+<br />
+
+    {{form.pet_choice}}
+    <br />
+    {% if form.errors %}
+    <p> {{form.errors.items()}}</p>
+
+    {% endif %}
+    <input type="submit" name="submitted" value="LoginWTF"/>
+
+</form>
+
+</body>
+</html>

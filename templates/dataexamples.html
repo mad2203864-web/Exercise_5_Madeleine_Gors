@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+{% if title %}
+    <title>{{ title }}</title>
+{% else %}
+<title>Joes Fab Shack</title>
+{% endif %}
+<link rel="stylesheet" href="" type="text/css">
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="dcterms.rightsHolder" content="Name of Copyright Holder" />
+<meta name="dcterms.dateCopyrighted" content="2012" />
+<meta name="description" content="A short description of the page" />
+<meta name="keywords" content="keywords describing this page, most search engines
+ignore this now due to abuse"/>
+    <link rel="stylesheet" href="{{url_for('static',filename = 'my.css')}}" type="text/css" />
+    </head>
+    <body>
+    <h1>Welcome to Joes User List</h1>
+    <table>
+{% for item in data %}
+<tr>
+    <td>{{item['fname']}}</td>
+    <td>{{item['lname']}}</td>
+</tr>
+{% endfor %}
+</table>
+
+<div id="validator">
+<a href="http://validator.w3.org/nu/?doc=https://nbtl.mesacc.edu{{url_for('index')}}">
+HTML 5 Validation</a>
+</div>
+</body>
+</html>
