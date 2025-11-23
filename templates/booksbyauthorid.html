@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Books By Author</title>
+<link rel="stylesheet" href="" type="text/css">
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="dcterms.rightsHolder" content="Name of Copyright Holder" />
+<meta name="dcterms.dateCopyrighted" content="2012" />
+<meta name="description" content="A short description of the page" />
+<meta name="keywords" content="keywords describing this page, most search engines
+ignore this now due to abuse"/>
+    <link rel="stylesheet" href="{{url_for('static',filename = 'my.css')}}" type="text/css" />
+    </head>
+    <body>
+    <h1>Welcome to Joes User List</h1>
+    <table>
+        <tr>
+            <th>Title</th>
+            <th>Year</th>
+            <th>Author</th>
+            <th>Publisher</th>
+        </tr>
+{% for item in data %}
+<tr>
+    <td>{{item['title']}}</td>
+    <td>{{item['year']}}</td>
+    <td>{{item['author']}}</td>
+    <td>{{item['publisher']}}</td>
+</tr>
+{% endfor %}
+</table>
+
+<div id="validator">
+<a href="http://validator.w3.org/nu/?doc=https://nbtl.mesacc.edu{{url_for('index')}}">
+HTML 5 Validation</a>
+</div>
+</body>
+</html>
+
