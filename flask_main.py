@@ -1,3 +1,7 @@
+# Madeleine Gors
+# CIS256
+# Fall 2025
+
 from flask import Flask, render_template, request, url_for, redirect, session
 from string import Template
 from loginwtf import LoginWTF
@@ -126,7 +130,7 @@ def search_router(searchtype):
         return render_template('byauthor.html', form=byauthorform)
     elif searchtype == 'byTitle':
         return "You Choose by Title"
-    elif searchtype == 'byPublisher':
+    elif searchtype == 'byPublisher': # completed by publisher form
         bypublisherform = ByPublisherIdWTF()
         return render_template('bypublisher.html', form=bypublisherform)
 
@@ -140,7 +144,9 @@ def search_results(option=None):
         books = mydb.getbooksbyauthorid(request.form['author_choice'])
         return render_template('booksbyauthorid.html', data=books)
     elif option == "booksbypublisherid":
-        return "Should list books by publisherid"
+        mydb = BooksDB()
+        books = mydb.getbooksbypublisherid(request.form['publisher_choice'])
+        return render_template('booksbypublisherid.html', data=books)
     elif option == "booksbytitle":
         return "Should list books by title"
 
