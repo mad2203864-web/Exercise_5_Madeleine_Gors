@@ -15,6 +15,9 @@ class ByAuthorIdWTF(FlaskForm):
 
 
 class ByPublisherIdWTF(FlaskForm):
+    mydb = BooksDB()
+    publishers = mydb.getpublishers()
+    publisher_choice = SelectField("PublisherChoice", choices=publishers)
     pass
 
 class ByTitleWTF(FlaskForm):
